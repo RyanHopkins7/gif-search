@@ -18,6 +18,11 @@ def index():
     # a) the query term, 'q'
     # b) your API key, 'key'
     # c) how many GIFs to return, 'limit'
+    params = {
+        "q": query_term,
+        "Key": "F4742JEU9YNK",
+        "limit": 10
+    }
 
     # TODO: Make an API call to Tenor using the 'requests' library. For
     # reference on how to use Tenor, see:
@@ -30,14 +35,13 @@ def index():
     # our test search
     search_term = "excited"
 
-    # get the top 8 GIFs for the search term
-    r = requests.get(
-        "https://api.tenor.com/v1/search?q=%s&key=%s&limit=%s" % (search_term, apikey, lmt))
+    # get the top 10 GIFs for the search term
+    response = requests.get("https://api.tenor.com/v1/search?q=%s&key=%s&limit=%s", params=params)
 
-    if r.status_code == 200:
+    if response.status_code == 200:
         # load the GIFs using the urls for the smaller GIF sizes
-        top_10gifs = json.loads(r.content)
-        print top_8gifs
+        top_10gifs = json.loads(response.content)
+        print top_10gifs
     else:
         top_10gifs = None
 
