@@ -13,6 +13,7 @@ lmt = 10
 def index():
     """Return homepage."""
     # TODO: Extract the query term from url using request.args.get()
+    user_input = request.args.get('user_input')
 
     # TODO: Make 'params' dictionary containing:
     # a) the query term, 'q'
@@ -28,20 +29,13 @@ def index():
     # reference on how to use Tenor, see:
     # https://tenor.com/gifapi/documentation
 
-    '''
-    Based off of the tenor api code provided, will change accordingly
-    '''
-
-    # our test search
-    search_term = "excited"
-
     # get the top 10 GIFs for the search term
     response = requests.get("https://api.tenor.com/v1/search?q=%s&key=%s&limit=%s", params=params)
 
     if response.status_code == 200:
         # load the GIFs using the urls for the smaller GIF sizes
         top_10gifs = json.loads(response.content)
-        print top_10gifs
+        print(top_10gifs)
     else:
         top_10gifs = None
 
@@ -54,7 +48,7 @@ def index():
     # TODO: Render the 'index.html' template, passing the list of gifs as a
     # named parameter called 'gifs'
 
-    return render_template("index.html")
+    return render_template("index.html", top_10gifs=top_10gifs, user_input=user_input)
 
 if __name__ == '__main__':
     app.run(debug=True)
