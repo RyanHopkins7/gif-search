@@ -14,6 +14,8 @@ def index():
     """Return homepage."""
     # TODO: Extract the query term from url using request.args.get()
     user_input = request.args.get('user_input')
+    
+    query_term = "kevin"
 
     # TODO: Make 'params' dictionary containing:
     # a) the query term, 'q'

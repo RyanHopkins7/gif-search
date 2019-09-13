@@ -8,22 +8,24 @@
     send us to the same route. -->
 
 {% block content %}
-  <<body>
 
-    <<h1>GifHub</h1>
-    <h4>You like that, Ryan?</h4>
+<body>
 
-  </body>
+    <h1>GifHub</h1>
 
-  <<form action='/'>
-    <input type="text" placeholder="Enter a GIF" name="user_input"/>
-    <button type="submit">Gif Search</button>
+    <form action='/'>
+        <input type="text" placeholder="Enter a GIF" name="user_input" />
+        <button type="submit">Gif Search</button>
 
-  </form>
+    </form>
 
-  {% for gif in top_10gifs.get("results") %}
+</body>
+
+
+
+{% for gif in top_10gifs.get("results") %}
     {% include "gif.html" %}
-  {% endfor %}
+{% endfor %}
 
 
 
