@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if gif_list %}
+    The gifs you wanted:
+
+    {% for link in gif_list %}
+    <br>
+    <img src = {{link}} alt = gif_type/>
+
+    {% endfor %}
+
+{% else %}
+    Sorry, I can't find anything for you right now.
+{% endif %}
+
+{% endblock %}
