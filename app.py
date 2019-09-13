@@ -7,7 +7,7 @@ app = Flask(__name__)
 # setting the apikey and limit
 #this is based off of the tenor api (https://tenor.com/gifapi/documentation#quickstart-search)
 apikey = "F4742JEU9YNK"  #test value - apikey came from tenor developer dashboard
-lmt = 10
+
 
 @app.route('/')
 def index():
