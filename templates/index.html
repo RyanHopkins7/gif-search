@@ -1,12 +1,35 @@
 <!-- templates/index.html -->
 
-
 <!-- TODO: Extend 'base.html' and put content into a block 'body' to match -->
+{% extends "base.html" %}
 
 <!-- TODO: Make an HTML form containing a search box and a submit button to add
     the search term to the query string. The form should have a target of '/' to
     send us to the same route. -->
 
+{% block content %}
+  <<body>
+
+    <<h1>GifHub</h1>
+    <h4>You like that, Ryan?</h4>
+
+  </body>
+
+  <<form action='/'>
+    <input type="text" placeholder="Enter a GIF" name="user_input"/>
+    <button type="submit">Gif Search</button>
+
+  </form>
+
+  {% for gif in top_10gifs.get("results") %}
+    {% include "gif.html" %}
+  {% endfor %}
+
+
+
 <!-- TODO: Make a for loop to loop over GIFs passed in from the server -->
 
 <!-- TODO: For each gif, include the 'gif.html' template to display it -->
+
+
+{% endblock %}
