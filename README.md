@@ -1,3 +1,3 @@
 # Gif Search
 
-A website where gifs are stored and can be searched for
+A website where a user can search for gifs using the Tenor API
