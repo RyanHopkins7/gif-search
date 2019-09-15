@@ -12,11 +12,31 @@ div {
     text-align: center
 }
 
-.search-bar {
+.title {
+    font-size: 2.5em;
+}
 
+.search-bar {
+    width: 300px;
+    padding: 5px;
+}
+
+.search-bar, .search-button {
+    margin: 2px;    
 }
 
 .search-button {
-    
+    cursor: pointer;
+    padding: 6px;
+    background-color: white;
+    font-weight: bold;
+    color: black;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 2px;
 }
 
+.search-button:hover {
+    background-color: black;
+    color: white;
+}
