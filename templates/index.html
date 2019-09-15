@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<div class="center">
+    <h1 class="title">Gif Hub</h1>
 
-<h1>GifHub</h1>
-
-<form action='/'>
-    Enter a GIF:
-    <input type="search" name="user_input"/>
-    <button type="submit">Search</button>
-</form>
-
+    <form action='/'>
+        <input class="search-bar" type="search" name="user_input" placeholder="Enter a GIF:"/>
+        <button class="search-button" type="submit">Search</button>
+    </form>
+</div>
 <p>
     {% if top_10gifs|length == 0 %}
         <p>Sorry, no gifs could be found for this search query. Try another search term!</p>
