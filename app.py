@@ -12,32 +12,18 @@ This is based off of reworking the tenor api resource, a great helper
 @app.route('/')
 def index():
     """Return homepage."""
-    # TODO: Extract the query term from url using request.args.get()
     user_input = request.args.get('user_input')
 
-    # TODO: Make 'params' dictionary containing:
-    # a) the query term, 'q'
-    # b) your API key, 'key'
-    # c) how many GIFs to return, 'limit'
     params = {
         "q": user_input,
         "Key": "F4742JEU9YNK",#api key came from tenor developer dashboard
         "limit": 10
     }
 
-    # TODO: Make an API call to Tenor using the 'requests' library. For
-    # reference on how to use Tenor, see:
-    # https://tenor.com/gifapi/documentation
     response = requests.get("https://api.tenor.com/v1/search", params)
 
-    # TODO: Use the '.json()' function to get the JSON of the returned response
-    # object
-    # TODO: Using dictionary notation, get the 'results' field of the JSON,
-    # which contains the GIFs as a list
     top_10gifs = json.loads(response.content)['results']
 
-    # TODO: Render the 'index.html' template, passing the list of gifs as a
-    # named parameter called 'gifs'
     return render_template("index.html", top_10gifs=top_10gifs)
 
 if __name__ == '__main__':
