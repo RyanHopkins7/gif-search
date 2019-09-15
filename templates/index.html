@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="center">
-    <p class="title">Welcome to Gif Hub!</p>
+    <p class="title"><a href="/">Welcome to Gif Hub!</a></p>
 
     <form action='/'>
         <input class="search-bar" type="search" name="user_input" placeholder="Search for a GIF and enjoy:"/>
@@ -11,7 +11,7 @@
 </div>
 <p>
     {% if top_10gifs|length == 0 %}
-        <p>Sorry, no gifs could be found for this search query. Try another search term!</p>
+        <p class="center">Sorry, no gifs could be found for this search query. Try another search term!</p>
     {% else %}
         {% for gif in top_10gifs %}
             {% include 'gif.html'  %}
