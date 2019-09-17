@@ -6,6 +6,10 @@ div {
     margin: 20px;
 }
 
+.gifs {
+    width: 600px;
+}
+
 .center {
     margin-left: auto;
     margin-right: auto;
@@ -22,15 +26,16 @@ div {
 }
 
 .search-bar {
-    width: 300px;
-    padding: 5px;
+    width: 600px;
+    padding: 7px;
+    font-size: 15px;
 }
 
 .search-bar, .search-button {
     margin: 2px;    
 }
 
-.search-button {
+.button {
     cursor: pointer;
     padding: 6px;
     background-color: white;
@@ -41,7 +46,7 @@ div {
     border-radius: 2px;
 }
 
-.search-button:hover {
+.button:hover {
     background-color: black;
     color: white;
 }

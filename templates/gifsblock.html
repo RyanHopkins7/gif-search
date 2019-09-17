@@ -2,6 +2,8 @@
     <p class="center">Sorry, no gifs could be found for this search query. Try another search term!</p>
 {% else %}
     {% for gif in top_10gifs %}
-        {% include 'gif.html' %}
+        <div class="center">
+            <img class="gifs" src="{{ gif.media[0].gif.url }}" />
+        </div>
     {% endfor %}
 {% endif %}
