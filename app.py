@@ -9,7 +9,7 @@ This is based off of reworking the tenor api resource, a great helper
 (https://tenor.com/gifapi/documentation#quickstart-search)
 '''
 
-@app.route('/')
+@app.route('/', methods=["GET","POST"])
 def index():
     """Return homepage."""
     user_input = request.args.get('user_input')
