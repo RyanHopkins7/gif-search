@@ -7,7 +7,6 @@ searchBar.onkeyup = function() {
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4) {
-            console.log(xhttp.responseText)
             gifWrapper.innerHTML = xhttp.responseText
         }
     }
