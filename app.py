@@ -9,17 +9,22 @@ This is based off of reworking the tenor api resource, a great helper
 (https://tenor.com/gifapi/documentation#quickstart-search)
 '''
 
-@app.route('/', methods=["GET","POST"])
+@app.route("/typeahead", methods=["POST"])
+def typeahead():
+    user_input = request.form["user_input"]
+
+    print(user_input)
+
+    return "Hello from the server!" + user_input
+
+@app.route('/')
 def index():
     """Return homepage."""
     user_input = request.args.get('user_input')
-    if "user" in request.form:
-        print(request.form["user"])
         
-
     params = {
         "q": user_input,
-        "Key": "F4742JEU9YNK",#api key came from tenor developer dashboard
+        "Key": "F4742JEU9YNK", #api key came from tenor developer dashboard
         "limit": 10
     }
 

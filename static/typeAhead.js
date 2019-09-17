@@ -1,9 +1,15 @@
 searchBar = document.getElementById("search-bar");
+gifWrapper = document.getElementById("gif-wrapper")
 
 searchBar.onkeyup = function() {
     let xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "/", true);
+    xhttp.open("POST", "/typeahead", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("user="+searchBar.value);
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4) {
+            gifWrapper.innerHTML = xhttp.responseText
+        }
+    }
+    xhttp.send("user_input="+searchBar.value);
 }
 

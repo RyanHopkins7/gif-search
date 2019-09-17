@@ -1,0 +1,7 @@
+{% if top_10gifs|length == 0 %}
+    <p class="center">Sorry, no gifs could be found for this search query. Try another search term!</p>
+{% else %}
+    {% for gif in top_10gifs %}
+        {% include 'gif.html' %}
+    {% endfor %}
+{% endif %}
