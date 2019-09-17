@@ -13,6 +13,9 @@ This is based off of reworking the tenor api resource, a great helper
 def index():
     """Return homepage."""
     user_input = request.args.get('user_input')
+    if "user" in request.form:
+        print(request.form["user"])
+        
 
     params = {
         "q": user_input,
