@@ -2,6 +2,9 @@ import requests
 import json
 
 def get_gifs(user_input):
+    """
+    Returns list of meta data about 10 gifs from Tenor API matching user_input
+    """
 
     params = {
         "q": user_input,

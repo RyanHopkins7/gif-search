@@ -12,6 +12,10 @@ This is based off of reworking the tenor api resource, a great helper
 
 @app.route("/typeahead", methods=["POST"])
 def typeahead():
+    """
+    When a post request is sent to /typeahead using ajax, gets 10 gifs from the 
+    Tenor API matching search term and sends HTML from rendering gifs to client 
+    """
     user_input = request.form["user_input"]
 
     top_10gifs = get_gifs(user_input)
@@ -20,7 +24,10 @@ def typeahead():
 
 @app.route('/')
 def index():
-    """Return homepage."""
+    """
+    Gets 10 gifs from Tenor API matching search term and returns HTML from 
+    rendering gifs in page back to client
+    """
     user_input = request.args.get('user_input')
 
     top_10gifs = get_gifs(user_input)
