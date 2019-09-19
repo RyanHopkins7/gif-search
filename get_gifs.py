@@ -1,3 +1,4 @@
+from flask import Flask, request
 import requests
 import json
 
@@ -13,6 +14,16 @@ def get_gifs(user_input):
     }
 
     response = requests.get("https://api.tenor.com/v1/search", params)
+
+    button_pressed = request.args.get('button')
+
+    if button_pressed == "currently_trending":
+        params["q"] = None
+        response = requests.get("https://api.tenor.com/v1/trending?", params)
+        
+    elif button_pressed == "completely_random":
+        params["q"] = "random"
+        response = requests.get("https://api.tenor.com/v1/random?", params)
 
     top_10gifs = json.loads(response.content)['results']
 
