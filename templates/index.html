@@ -4,9 +4,17 @@
 <div class="center">
     <p class="title"><a href="/">Welcome to Gif Hub!</a></p>
 
-    <form action='/'>
-        <input id="search-bar" autocomplete="off" class="search-bar" type="search" name="user_input" placeholder="Search for a GIF and enjoy:"/>
-    </form>
+    <div class="form-wrapper">
+        <form action='/'>
+            <input id="search-bar" autocomplete="off" class="search-bar" type="search" name="user_input" placeholder="Search for a GIF and enjoy:"/>
+        </form>
+        <form action='/'>
+            <button class="button" type="submit" name="button" value="currently_trending">Trending Gifs</button>
+        </form>
+        <form action='/'>
+            <button class="button" type="submit" name="button" value="completely_random">Random Gifs</button>
+        </form>
+    </div>
 
 </div>
 <div id="gif-wrapper">
