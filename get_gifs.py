@@ -17,4 +17,3 @@ def get_gifs(user_input):
     top_10gifs = json.loads(response.content)['results']
 
     return top_10gifs
-

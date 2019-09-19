@@ -18,17 +18,7 @@ def typeahead():
     """
     user_input = request.form["user_input"]
 
-    #top_10gifs = get_gifs(user_input)
-
-    params = {
-        "q": user_input,
-        "Key": "F4742JEU9YNK", #api key came from tenor developer dashboard
-        "limit": 10
-    }
-
-    response = requests.get("https://api.tenor.com/v1/search", params)
-
-    top_10gifs = json.loads(response.content)['results']
+    top_10gifs = get_gifs(user_input)
 
     return render_template("gifsblock.html", top_10gifs=top_10gifs)
 
@@ -40,26 +30,7 @@ def index():
     """
     user_input = request.args.get('user_input')
 
-    #top_10gifs = get_gifs(user_input)
-
-    params = {
-        "q": user_input,
-        "Key": "F4742JEU9YNK", #api key came from tenor developer dashboard
-        "limit": 10
-    }
-
-    button_pressed = request.args.get('button')
-
-    response = requests.get("https://api.tenor.com/v1/search", params)
-
-    if button_pressed == "trending":
-        params["q"] = None
-        response = requests.get("https://api.tenor.com/v1/trending?", params)
-    elif button_pressed == "random":
-        params["q"] = "random"
-        response = requests.get("https://api.tenor.com/v1/random?", params)
-
-    top_10gifs = json.loads(response.content)['results']
+    top_10gifs = get_gifs(user_input)
 
     return render_template("index.html", top_10gifs=top_10gifs)
 
