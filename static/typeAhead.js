@@ -11,7 +11,6 @@ searchBar.onkeyup = function () {
         sendRequest = false;
         setTimeout(function () {
             sendRequest = true;
-            console.log("nice");
 
             let xhttp = new XMLHttpRequest();
             xhttp.open("POST", "/typeahead", true);
@@ -25,7 +24,7 @@ searchBar.onkeyup = function () {
             }
     
             xhttp.send("user_input=" + searchBar.value);
-        }, 300)
+        }, 300);
     }    
 }
 
