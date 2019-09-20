@@ -15,11 +15,8 @@ def typeahead():
     """
     When a post request is sent to /typeahead using ajax, gets 10 gifs from the 
     Tenor API matching search term and sends HTML from rendering gifs to client 
-    Returns:
-        HTML from rendering gifs from gifsblock template using search query 
-        obtained from post request using ajax
     """
-    user_input = request.form["user_input"]
+    user_input = request.form["user_input"]#this extracts the query term from the url
 
     top_10gifs = get_gifs(user_input)
 
@@ -30,15 +27,13 @@ def index():
     """
     Gets 10 gifs from Tenor API matching search term and returns HTML from 
     rendering gifs in page back to client
-    Returns:
-        HTML from rendering index template using search query obtained from 
-        get request sent by HTML form
     """
     user_input = request.args.get('user_input')
 
     top_10gifs = get_gifs(user_input)
 
     return render_template("index.html", top_10gifs=top_10gifs)
+
 
 if __name__ == '__main__':
     app.run()
